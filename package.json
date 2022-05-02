@@ -1,16 +1,28 @@
 {
   "name": "@shineiichijo/canvas-chan",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Making canvas stuffs easier",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "yarn rimraf dist/ && yarn tsc -p ."
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ShineiIchijo/Canvas-chan.git"
+  },
   "keywords": [
-    "canvas"
+    "canvas",
+    "ship",
+    "pokemon",
+    "guess-the-pokemon",
+    "simp"
   ],
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ShineiIchijo/Canvas-chan/issues"
+  },
+  "homepage": "https://github.com/ShineiIchijo/Canvas-chan",
   "author": "Shinei Ichijo",
   "devDependencies": {
     "@types/axios": "^0.14.0",
