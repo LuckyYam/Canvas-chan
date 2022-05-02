@@ -1,0 +1,1 @@
+export { Ship, Simp, GuessThePokemon as Pokemon } from './Base'
