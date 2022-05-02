@@ -1,5 +1,5 @@
-import { Image, CanvasRenderingContext2D } from "canvas";
-import axios from "axios";
+import { Image, CanvasRenderingContext2D } from 'canvas';
+import axios from 'axios';
 
 export class Utils {
   constructor() {}
@@ -42,7 +42,7 @@ export class Utils {
   };
 
   public getBuffer = async (url: string): Promise<Buffer> =>
-    (await axios.get<Buffer>(url, { responseType: "arraybuffer" })).data;
+    (await axios.get<Buffer>(url, { responseType: 'arraybuffer' })).data;
 
   public fetch = async (url: string) => await (await axios.get(url)).data;
 

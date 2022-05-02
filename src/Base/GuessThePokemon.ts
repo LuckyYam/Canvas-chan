@@ -1,16 +1,16 @@
-import { createCanvas, loadImage } from "canvas";
-import { Utils } from "../lib/Utils";
-import { join } from "path";
+import { createCanvas, loadImage } from 'canvas';
+import { Utils } from '../lib/Utils';
+import { join } from 'path';
 
 export class GuessThePokemon {
   private utils: Utils = new Utils();
 
   private paths = {
     images: {
-      shown: join(__dirname, "..", "..", "assets", "images", "show.png"),
-      hidden: join(__dirname, "..", "..", "assets", "images", "hidden.png"),
+      shown: join(__dirname, '..', '..', 'assets', 'images', 'show.png'),
+      hidden: join(__dirname, '..', '..', 'assets', 'images', 'hidden.png'),
     },
-    font: join(__dirname, "..", "..", "assets", "fonts", "Pokemon_Solid.ttf"),
+    font: join(__dirname, '..', '..', 'assets', 'fonts', 'Pokemon_Solid.ttf'),
   };
 
   /**
@@ -28,7 +28,7 @@ export class GuessThePokemon {
 
   public build = async (): Promise<Buffer> => {
     const query =
-      typeof this.pokemon === "string"
+      typeof this.pokemon === 'string'
         ? this.pokemon.toLowerCase()
         : this.pokemon.toString();
     let data;
@@ -56,27 +56,27 @@ export class GuessThePokemon {
     name: string;
     image: string;
   }): Promise<Buffer> => {
-    const file = this.hide ? "hidden" : "shown";
+    const file = this.hide ? 'hidden' : 'shown';
     const bg = await loadImage(this.paths.images[file]);
     const pkmn = await loadImage(await this.utils.getBuffer(pokemon.image));
     const canvas = createCanvas(bg.width, bg.height);
-    const ctx = canvas.getContext("2d");
+    const ctx = canvas.getContext('2d');
     ctx.drawImage(bg, 0, 0);
     if (this.hide) {
       const silhouetteCanvas = createCanvas(pkmn.width, pkmn.height);
-      const silhouetteCtx = silhouetteCanvas.getContext("2d");
+      const silhouetteCtx = silhouetteCanvas.getContext('2d');
       silhouetteCtx.drawImage(pkmn, 0, 0);
       this.utils.silhouette(silhouetteCtx, 0, 0, pkmn.width, pkmn.height);
       ctx.drawImage(silhouetteCanvas, 30, 39, 200, 200);
     } else {
       ctx.drawImage(pkmn, 30, 39, 200, 200);
       ctx.font = this.paths.font;
-      ctx.textAlign = "center";
-      ctx.textBaseline = "bottom";
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'bottom';
       ctx.lineWidth = 8;
-      ctx.strokeStyle = "#3c5aa6";
+      ctx.strokeStyle = '#3c5aa6';
       ctx.strokeText(this.utils.capitalize(pokemon.name), 362, 158, 240);
-      ctx.fillStyle = "#ffcb05";
+      ctx.fillStyle = '#ffcb05';
       ctx.fillText(this.utils.capitalize(pokemon.name), 362, 158, 240);
     }
     return canvas.toBuffer();
