@@ -41,9 +41,7 @@ export class Ship {
       (typeof this.profile[1].image !== 'string' &&
         !Buffer.isBuffer(this.profile[1].image))
     )
-      throw new TypeError(
-        'The image should be of type string or instance of Buffer'
-      );
+      throw new TypeError('The image should be of type string or Buffer');
     if (typeof this.profile[0].image === 'string')
       this.profile[0].image = await this.utils.getBuffer(this.profile[0].image);
     if (typeof this.profile[1].image === 'string')

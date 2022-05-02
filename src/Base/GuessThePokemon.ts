@@ -2,7 +2,7 @@ import { createCanvas, loadImage } from 'canvas';
 import { Utils } from '../lib/Utils';
 import { join } from 'path';
 
-export class GuessThePokemon {
+export class Pokemon {
   private utils: Utils = new Utils();
 
   private paths = {
