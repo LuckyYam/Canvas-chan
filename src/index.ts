@@ -1,1 +1,1 @@
-export { Ship, Simp, GuessThePokemon as Pokemon } from './Base'
+export { Ship, IShipOptions, Simp, GuessThePokemon as Pokemon } from './Base'

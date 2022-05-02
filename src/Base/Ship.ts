@@ -12,12 +12,12 @@ export class Ship {
 
     /**
      * Constructs an instance of the ship image
-     * @param {IShipProfile[]} profile Array of name and image of the people that you want to ship
+     * @param {IShipOptions[]} profile Array of name and image of the people that you want to ship
      * @param {number} percentage The level of their shipping
      * @param {string} text The text that you want to write at the top of the image
      */
 
-    constructor(private profile: IShipProfile[], private percentage: number, private text?: string) {}
+    constructor(private profile: IShipOptions[], private percentage: number, private text?: string) {}
 
     /**
      * Builds the ship image
@@ -65,7 +65,7 @@ export class Ship {
     }
 }
 
-export interface IShipProfile {
+export interface IShipOptions {
     name: string;
     image: string | Buffer;
 }
